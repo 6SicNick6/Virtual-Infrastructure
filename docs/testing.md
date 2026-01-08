@@ -34,6 +34,16 @@ This document captures all validation steps performed during Phase 1 of the VMwa
 * Tested forward DNS resolution using `nslookup`
 * Verified successful login using domain credentials
 
+### MGMT01 Domain Join Validation
+
+* Configured MGMT01 to use DC01 as its primary DNS server
+* Successfully joined MGMT01 to the `vmware.lab` Active Directory domain
+* Verified domain membership via System Properties
+* Confirmed domain authentication using `VMWARE\Administrator` credentials
+
+**Result:** MGMT01 is fully integrated into the domain and ready for administrative and management tasks.
+
+
 ### Results
 
 * Active Directory services operational
