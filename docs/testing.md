@@ -1,4 +1,4 @@
-# Testing and Validation – Phase 1
+# Phase 1 - Testing and Validation
 
 ## Overview
 This document captures all validation steps performed during Phase 1 of the VMware lab. Testing ensures that all VMs are operational and network connectivity is functional.
@@ -24,3 +24,18 @@ This document captures all validation steps performed during Phase 1 of the VMwa
 - Hostname-based ping is not functional due to the absence of DNS services
 - All connectivity testing is based on IP addresses
 - Evidence of testing is captured in the `screenshots/` directory
+
+## Phase 2 – Active Directory and DNS Validation
+
+### Tests Performed
+
+* Verified DC01 promotion to Domain Controller
+* Confirmed DNS service installation
+* Tested forward DNS resolution using `nslookup`
+* Verified successful login using domain credentials
+
+### Results
+
+* Active Directory services operational
+* DNS resolving domain and hostnames correctly
+* Known DHCP-related warning documented and accepted
