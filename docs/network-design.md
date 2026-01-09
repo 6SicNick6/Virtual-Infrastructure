@@ -20,9 +20,6 @@ This document outlines the network configuration and validation steps for Phase 
 - Single network requires careful VM planning for future domain services
 - Current setup is sufficient for baseline validation and portfolio documentation
 
-### IP Addressing Update
+## IP Addressing Update
 
-Initially, all virtual machines were configured to use DHCP due to lab constraints.  
-During Phase 2, DC01 was assigned a static IP address via the upstream DHCP/DNS platform to ensure Active Directory and DNS stability.
-
-This approach maintains centralized IP management while providing the consistency required for directory services.
+Initially, all virtual machines were configured to use DHCP due to lab constraints. During Phase 2, DC01 was assigned a static IP address via the upstream DHCP/DNS platform to ensure Active Directory and DNS stability. This approach maintains centralized IP management while providing the consistency required for directory services.
