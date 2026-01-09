@@ -53,3 +53,16 @@ This document captures all validation steps performed during Phase 1 of the VMwa
 
 During Phase 2 validation, DC01 was assigned a static IP address to improve DNS reliability and domain join consistency.  
 Post-change validation confirmed continued Active Directory and DNS functionality across all domain-joined systems.
+
+## Phase 3A – File Services Validation
+
+### Tests Performed
+- Created AD security groups for file access
+- Configured NTFS permissions on FS01
+- Configured SMB share permissions
+- Validated access from MGMT01 using a standard domain user
+
+### Results
+- File share accessible as designed
+- Read/write access correctly enforced via group membership
+- Administrative privileges not required for access
