@@ -49,3 +49,7 @@ This document captures all validation steps performed during Phase 1 of the VMwa
 
 **Result:** MGMT01 is fully integrated into the domain and ready for administrative and management tasks.
 
+### Configuration Adjustment
+
+During Phase 2 validation, DC01 was assigned a static IP address to improve DNS reliability and domain join consistency.  
+Post-change validation confirmed continued Active Directory and DNS functionality across all domain-joined systems.
