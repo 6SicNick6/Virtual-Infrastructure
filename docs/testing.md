@@ -46,51 +46,42 @@ This document captures all validation steps performed during Phase 1 of the VMwa
 * Successfully joined MGMT01 to the `vmware.lab` Active Directory domain
 * Verified domain membership via System Properties
 * Confirmed domain authentication using `VMWARE\Administrator` credentials
-
-**Result:** MGMT01 is fully integrated into the domain and ready for administrative and management tasks.
+* MGMT01 is fully integrated into the domain and ready for administrative and management tasks.
 
 ### Configuration Adjustment
 
 During Phase 2 validation, DC01 was assigned a static IP address to improve DNS reliability and domain join consistency.  
 Post-change validation confirmed continued Active Directory and DNS functionality across all domain-joined systems.
 
-## Phase 3A – File Services Validation
+## Phase 3 – Windows File Services
 
-### Tests Performed
-- Created AD security groups for file access
-- Configured NTFS permissions on FS01
-- Configured SMB share permissions
-- Validated access from MGMT01 using a standard domain user
+#### Tests Performed
 
-### Results
-- File share accessible as designed
-- Read/write access correctly enforced via group membership
-- Administrative privileges not required for access
+* Installed and configured Windows File Server role on FS01
+* Created Active Directory security groups for file access control
+* Applied NTFS and share permissions using AD groups
+* Verified file access from Windows management workstation
+* Configured Linux DNS to use Active Directory DNS
+* Installed SMB client utilities on Linux
+* Authenticated to Windows file share from Linux using domain credentials
 
-## Phase 3B – Linux Integration Validation
+#### Results
 
-### Tests Performed
-- Configured Linux DNS to use Active Directory DNS
-- Verified forward DNS resolution for domain hosts
-- Installed SMB client tools
-- Authenticated to Windows file share using domain credentials
+* Windows file services configured according to enterprise best practices
+* NTFS and share permissions enforced through Active Directory groups
+* Linux systems successfully resolved domain resources via AD DNS
+* Read/write access to Windows file shares validated from Linux clients
 
-### Results
-- Linux successfully resolved domain resources
-- SMB authentication against Active Directory succeeded
-- Read/write access to Windows file share validated from Linux
+## Phase 4 – Linux Identity and Privilege Integration
 
-## Phase 4 – Linux Integration Validation
+#### Tests Performed
+* Verified Active Directory authentication from Linux using SSSD
+* Confirmed AD user and group resolution on Linux
+* Validated AD-based sudo access via Linux-Sudo group
+* Confirmed cross-platform identity consistency between Linux and Windows systems
 
-### Tests Performed
-- Verified Active Directory authentication from Linux using SSSD
-- Confirmed AD group resolution and user identity mapping
-- Validated AD-based sudo access via Linux-Sudo group
-- Tested SMB access from Linux to Windows file server using AD credentials
-
-### Results
-- Linux successfully authenticates against vmware.lab Active Directory
-- Privilege escalation controlled through AD group membership
-- Linux users can access Windows SMB shares with correct NTFS permissions
-- Cross-platform identity and access model functions as designed
-
+#### Results
+* Linux systems successfully authenticate against vmware.lab Active Directory
+* Privilege escalation is centrally controlled using AD group membership
+* Linux hosts participate fully in the enterprise identity model
+* Cross-platform authentication and authorization function as designed
