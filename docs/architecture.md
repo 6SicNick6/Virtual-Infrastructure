@@ -26,4 +26,4 @@ This document describes the logical architecture of the Phase 1 lab environment.
 - Management traffic is centralized via MGMT01
 - Linux intentionally deployed without a GUI to reflect enterprise best practices
 - Snapshots taken for rollback and experimentation without compromising baseline
-
+- Linux systems are integrated with Active Directory for centralized authentication, authorization, and privilege management.
