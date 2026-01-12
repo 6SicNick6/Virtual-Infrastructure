@@ -11,3 +11,6 @@
 - All VMs are on the same DHCP network
 - Baseline snapshots allow rollback to a clean OS state
 - Linux is managed entirely via CLI; no GUI installed
+- Joined to vmware.lab Active Directory domain
+- Authentication managed via SSSD
+- Privilege escalation controlled by AD group membership
