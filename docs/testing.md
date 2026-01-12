@@ -66,3 +66,16 @@ Post-change validation confirmed continued Active Directory and DNS functionalit
 - File share accessible as designed
 - Read/write access correctly enforced via group membership
 - Administrative privileges not required for access
+
+## Phase 3B – Linux Integration Validation
+
+### Tests Performed
+- Configured Linux DNS to use Active Directory DNS
+- Verified forward DNS resolution for domain hosts
+- Installed SMB client tools
+- Authenticated to Windows file share using domain credentials
+
+### Results
+- Linux successfully resolved domain resources
+- SMB authentication against Active Directory succeeded
+- Read/write access to Windows file share validated from Linux
