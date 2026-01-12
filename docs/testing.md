@@ -79,3 +79,18 @@ Post-change validation confirmed continued Active Directory and DNS functionalit
 - Linux successfully resolved domain resources
 - SMB authentication against Active Directory succeeded
 - Read/write access to Windows file share validated from Linux
+
+## Phase 4 – Linux Integration Validation
+
+### Tests Performed
+- Verified Active Directory authentication from Linux using SSSD
+- Confirmed AD group resolution and user identity mapping
+- Validated AD-based sudo access via Linux-Sudo group
+- Tested SMB access from Linux to Windows file server using AD credentials
+
+### Results
+- Linux successfully authenticates against vmware.lab Active Directory
+- Privilege escalation controlled through AD group membership
+- Linux users can access Windows SMB shares with correct NTFS permissions
+- Cross-platform identity and access model functions as designed
+
