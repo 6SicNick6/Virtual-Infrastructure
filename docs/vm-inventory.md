@@ -1,16 +1,35 @@
-# Virtual Machine Inventory – Phase 1
+# Virtual Machine Inventory
 
-| VM Name | Operating System | Role | Notes |
-|---------|-----------------|------|-------|
-| DC01    | Windows Server  | Future Domain Controller | No roles installed yet, DHCP networking, snapshot taken |
-| FS01    | Windows Server  | File Server | Baseline Windows Server installation, snapshot taken |
-| MGMT01 | Windows Server  | Management / Admin Server | Used for admin tasks, snapshot taken |
-| LNX01   | Linux Server (CLI-only) | Generic Linux Server | Minimal CLI-only installation, snapshot taken, firewall adjusted for ICMP |
+## DC01
+- OS: Windows Server
+- Role: Active Directory Domain Controller, DNS
+- Domain: vmware.lab
+- Networking: DHCP
+- Status: Production-ready (lab environment)
 
-### Notes
-- All VMs are on the same DHCP network
-- Baseline snapshots allow rollback to a clean OS state
-- Linux is managed entirely via CLI; no GUI installed
-- Joined to vmware.lab Active Directory domain
-- Authentication managed via SSSD
-- Privilege escalation controlled by AD group membership
+---
+
+## FS01
+- OS: Windows Server
+- Role: File Server
+- Domain-joined: Yes
+- Networking: DHCP
+- Status: Production-ready (lab environment)
+
+---
+
+## MGMT01
+- OS: Windows Server
+- Role: Management Workstation
+- Domain-joined: Yes
+- Networking: DHCP
+- Status: Production-ready (lab environment)
+
+---
+
+## LNX01
+- OS: Linux (CLI-only)
+- Role: Linux application / utility server
+- Domain-joined: Yes (via SSSD)
+- Networking: DHCP
+- Status: Production-ready (lab environment)
