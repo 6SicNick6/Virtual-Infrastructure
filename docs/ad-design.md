@@ -1,8 +1,8 @@
-# Active Directory Design – Phase 2
+# Active Directory Design
 
 ## Overview
 
-This document describes the deployment of Active Directory Domain Services (AD DS) in Phase 2 of the VMware Virtual Infrastructure Lab. This phase introduces centralized identity and authentication while preserving the Phase 1 baseline.
+This document describes the deployment of Active Directory Domain Services (AD DS) of the VMware Virtual Infrastructure Lab. 
 
 ## Domain Design
 
