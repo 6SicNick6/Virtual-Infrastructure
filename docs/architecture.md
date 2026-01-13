@@ -1,29 +1,44 @@
-# VMware Virtual Infrastructure – Architecture
+# Architecture Design
 
 ## Overview
-This document describes the logical architecture of the Phase 1 lab environment. The design emphasizes clear role separation, manageability, and readiness for future Active Directory and DNS deployment.
+This environment represents a simplified enterprise virtual infrastructure built on VMware virtualization.  
+The design centralizes identity, authentication, and authorization using Active Directory and extends those services to both Windows and Linux systems.
 
-## Logical Layout
-- **DC01** – Future Domain Controller  
-  - Intended for Active Directory services
-  - No roles installed in Phase 1
+---
 
-- **FS01** – File Server  
-  - Centralized file storage (role placeholder)
-  - Windows Server baseline installation
+## Logical Architecture
 
-- **MGMT01** – Management / Admin Server  
-  - Administrative workstation for managing the environment
-  - Used for testing connectivity, snapshot management, and VMware Tools verification
+- All virtual machines reside on a single VMware-provided virtual network
+- DHCP is used due to lab constraints
+- Active Directory DNS is the authoritative name resolution service
+- Security and access control are enforced using Active Directory groups
 
-- **LNX01** – Linux Server (CLI-only)  
-  - Minimal Linux installation
-  - Managed entirely via command line
-  - Represents a generic Linux server in enterprise environments
+---
 
-## Design Considerations
-- Each server is deployed as a separate VM for **role isolation**
-- Management traffic is centralized via MGMT01
-- Linux intentionally deployed without a GUI to reflect enterprise best practices
-- Snapshots taken for rollback and experimentation without compromising baseline
-- Linux systems are integrated with Active Directory for centralized authentication, authorization, and privilege management.
+## Key Components
+
+### DC01
+- Active Directory Domain Services
+- DNS Server
+- Domain: vmware.lab
+
+### FS01
+- Windows File Server
+- NTFS and share permissions controlled by AD security groups
+
+### MGMT01
+- Domain-joined management workstation
+- Used for administration and validation
+
+### LNX01
+- Linux server (CLI-only)
+- Integrated with Active Directory using SSSD
+- Uses AD for authentication and authorization
+
+---
+
+## Design Principles
+- Centralized identity and access management
+- Role-based access control using security groups
+- Separation of administrative privileges and data access
+- Cross-platform interoperability between Windows and Linux systems
