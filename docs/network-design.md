@@ -1,25 +1,26 @@
-# Network Design – Phase 1
+# Network Design
 
 ## Overview
-This document outlines the network configuration and validation steps for Phase 1 of the VMware lab. The environment operates under lab-imposed constraints.
+The lab operates within a constrained networking model provided by a shared enterprise VMware environment.
 
-## Network Topology
-- Single VMware-provided virtual network
-- DHCP used for all VMs
-- No static IP addresses permitted
-- No DNS configured in Phase 1
+---
 
-### Connectivity Validation
-- All VMs can ping each other **using IP addresses**
-- Windows firewall configured to allow ICMP (ping)
-- Linux firewall rules reviewed; ICMP allowed
-- Hostname resolution is deferred until DNS is deployed
+## Network Characteristics
+- Single virtual network
+- DHCP-assigned IP addresses
+- No control over upstream routing or switching
+- No VLAN segmentation available
 
-## Constraints and Considerations
-- Limited to DHCP due to lab restrictions
-- Single network requires careful VM planning for future domain services
-- Current setup is sufficient for baseline validation and portfolio documentation
+---
 
-## IP Addressing Update
+## DNS Strategy
+- DC01 provides DNS services for the vmware.lab domain
+- All domain-joined systems use DC01 as their primary DNS server
+- Linux DNS resolution is configured to use Active Directory DNS
 
-Initially, all virtual machines were configured to use DHCP due to lab constraints. During Phase 2, DC01 was assigned a static IP address via the upstream DHCP/DNS platform to ensure Active Directory and DNS stability. This approach maintains centralized IP management while providing the consistency required for directory services.
+---
+
+## Design Considerations
+- DHCP was used to comply with lab constraints
+- DNS reliability was prioritized over static IP usage
+- Name resolution validation was performed from all systems
